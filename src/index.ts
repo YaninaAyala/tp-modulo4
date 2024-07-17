@@ -2,3 +2,5 @@
 
 // }
 // main()
+
+console.log("funciona");

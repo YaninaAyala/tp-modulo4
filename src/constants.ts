@@ -1,0 +1,1 @@
+export const API_URL = "https://dolarapi.com/v1/dolares"
