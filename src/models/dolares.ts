@@ -1,6 +1,8 @@
 import { getData } from "../database";
 
-class BlueDollar {
+class Dollars {
     constructor() {}
-    
+    getAllDollars(){
+    //getData(){}
+}
 }
