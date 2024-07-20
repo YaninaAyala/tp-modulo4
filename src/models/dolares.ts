@@ -1,7 +1,7 @@
 import { getData } from "../database";
 //import { getDataBis } from "../database"; --> no la usé
 
-class DollarModel {
+class Dollar {
   constructor() {}
   async getAllDollars() {
     const dollars = await getData(""); //---> antes estaba así {dollars} y no me funcionaba getByName
@@ -26,9 +26,10 @@ class DollarModel {
   }
 }
 
-const dollars = new DollarModel();
+const dollars = new Dollar();
 // const dollars = new Dollar().getByCasa("cripto"); -->usé para hacer pruebas
 // const dollars2 = new Dollar().getByPrecioVenta(944.5);-->usé para hacer pruebas
 
-const {getAllDollars, getByCasa, getByPrecioVenta} = dollars;
-export {getAllDollars, getByCasa, getByPrecioVenta}
+//const {getAllDollars, getByCasa, getByPrecioVenta} = dollars;
+//export {getAllDollars, getByCasa, getByPrecioVenta}
+export { dollars };
