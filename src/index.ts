@@ -1,17 +1,20 @@
 import net from "net";
 import { PORT } from "./constants";
-import { dollars } from "./models/dolares"
+import { allDollars, casaDollar, ventaDollar } from "./controllers/index-controller";
 
 const server = net.createServer();
 server.on("connection", (socket) => {
-  socket.on("data", (message) => {
+  socket.on("data", async (message) => {
     const clientMessage = message.toString();
     const objectJs = JSON.parse(clientMessage);
-    // if(message.path == "dollars"){
-    // }
-    console.log(objectJs);
+
+    if (objectJs.path == "dollars") {
+      const dataDollars = await allDollars();
+      const dollarsJson = JSON.stringify(dataDollars);
+      socket.write(dollarsJson);
+    }
+    //console.log(objectJs);
   });
-  socket.write("Hola")
 });
 
 server.listen(PORT, () =>

@@ -1,8 +1,10 @@
 import { getData } from "../database";
 //import { getDataBis } from "../database"; --> no la usé
+import { Messages } from "../utils/messages";
 
-class Dollar {
+class DollarModel {
   constructor() {}
+
   async getAllDollars() {
     const dollars = await getData(""); //---> antes estaba así {dollars} y no me funcionaba getByName
     return dollars;
@@ -13,6 +15,9 @@ class Dollar {
     //const searchedDollar = dollars.find((coin) => console.log(coin.casa)); //-->hice pruebas
     const searchedDollar = dollars.find((coin) => coin.casa == casa);
     //console.log(searchedDollar); //---> hice pruebas
+    if (!searchedDollar) {
+      return Messages.NOT_FOUND
+    }
     return searchedDollar;
   }
 
@@ -21,15 +26,16 @@ class Dollar {
     //const searchedPrecioVenta = dollars.find((coin) => console.log(coin.venta));// -->hice pruebas
     const searchedPrecioVenta = dollars.find((coin) => coin.venta == venta)
     //console.log(searchedPrecioVenta); //---> hice pruebas
+    if (!searchedPrecioVenta) {
+      return Messages.NOT_FOUND
+    }
     return searchedPrecioVenta;
-    
   }
 }
 
-const dollars = new Dollar();
+const dollars = new DollarModel();
 // const dollars = new Dollar().getByCasa("cripto"); -->usé para hacer pruebas
 // const dollars2 = new Dollar().getByPrecioVenta(944.5);-->usé para hacer pruebas
 
-//const {getAllDollars, getByCasa, getByPrecioVenta} = dollars;
-//export {getAllDollars, getByCasa, getByPrecioVenta}
-export { dollars };
+const {getAllDollars, getByCasa, getByPrecioVenta} = dollars;
+export {getAllDollars, getByCasa, getByPrecioVenta}; 
