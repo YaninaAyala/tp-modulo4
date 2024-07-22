@@ -1,5 +1,5 @@
 import { getData } from "../database";
-//import { getDataBis } from "../database"; --> no la usé
+//import { getDataBis } from "../database"; //--> no la usé
 import { Messages } from "../utils/messages";
 
 class DollarModel {
@@ -34,8 +34,9 @@ class DollarModel {
 }
 
 const dollars = new DollarModel();
-// const dollars = new Dollar().getByCasa("cripto"); -->usé para hacer pruebas
-// const dollars2 = new Dollar().getByPrecioVenta(944.5);-->usé para hacer pruebas
+
+//const dollars2 = new DollarModel().getByCasa("bolsa"); //-->usé para hacer pruebas
+//const dollars3 = new DollarModel().getByPrecioVenta(944.5);-->usé para hacer pruebas
 
 const {getAllDollars, getByCasa, getByPrecioVenta} = dollars;
 export {getAllDollars, getByCasa, getByPrecioVenta}; 

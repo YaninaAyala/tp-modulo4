@@ -13,9 +13,11 @@ class DollarController {
     }
     return await getByCasa(casa);
   }
-  async getByPrecioVenta(venta: number) { //faltaria validar si no le llega un numero
+  async getByPrecioVenta(venta: number) { 
     if (!venta) {
       return Messages.MISSING_DATA;
+    } else if (typeof venta != "number") {
+      return Messages.BAD_REQUEST
     }
     return await getByPrecioVenta(venta) 
   }
